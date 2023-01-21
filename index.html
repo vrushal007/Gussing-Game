@@ -27,13 +27,17 @@
             event.preventDefault();
             cnt++;
             let enteredNum = inpNum.value;
-            console.log(enteredNum)
+            // console.log(enteredNum)
             let li = document.createElement('li');
             if (luckyNum > enteredNum) {
                 li.appendChild(document.createTextNode(`Too Low : ${enteredNum}`));
                 ol.appendChild(li);
-            } else {
+            } else if (luckyNum < enteredNum) {
                 li.appendChild(document.createTextNode(`Too High : ${enteredNum}`));
+                ol.appendChild(li);
+            } else {
+                li.appendChild(document.createTextNode(`You won : ${enteredNum}`));
+                cnt = 10;
                 ol.appendChild(li);
             }
             inpNum.value = ''
