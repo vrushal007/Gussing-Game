@@ -13,12 +13,14 @@
         <label>Enter Your Lucky Number: </label>
         <input type="number" min="1" max="100" id="inpNum"><br>
         <button id="btnSubmit">Submit</button>
+        <button id="btnReset">Reset</button>
     </form>
     <ol id="ol">
     </ol>
     <script>
         let inpNum = document.getElementById("inpNum");
         let btnSubmit = document.getElementById("btnSubmit");
+        let btnReset = document.getElementById("btnReset");
         const luckyNum = Math.floor(Math.random() * 100);
         console.log(`lucky num ${luckyNum}`)
         let ol = document.getElementById('ol');
@@ -44,6 +46,12 @@
             if (cnt == 10) {
                 btnSubmit.disabled = true;
             }
+        }
+        btnReset.onclick = (event) => {
+            event.preventDefault();
+            btnSubmit.disabled = false;
+            ol.innerHTML = "";
+            cnt = 0;
         }
     </script>
 </body>
